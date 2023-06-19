@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Client</title>
+</head>
+<body>
+    <input type="text" id="messageInput" placeholder="Enter message">
+    <button onclick="sendMessage()">Send</button>
+    <ul id="messages"></ul>
+
+    <script>
+        var socket = new WebSocket('ws:192.168.0.29:8080'); // 連線到websocket server
+
+        
+        socket.onopen = function(event) {
+            console.log('WebSocket connection established');
+        };
+
+        
+        socket.onmessage = function(event) {
+            var message = event.data;
+            console.log('Received message: ' + message);
+
+            //在網頁上顯示收到的message
+            var messagesContainer = document.getElementById('messages');
+            var li = document.createElement('li');
+            li.innerText = message;
+            messagesContainer.appendChild(li);
+        };
+
+        // 關閉連線時觸發
+        socket.onclose = function(event) {
+            console.log('WebSocket connection closed');
+        };
+
+        // 送出message
+        function sendMessage() {
+            var input = document.getElementById('messageInput');
+            var message = input.value;
+
+            if (message !== '') {
+                socket.send(message);
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
