@@ -23,7 +23,7 @@
 
     function login($userId, $userPwd){
         global $connection;
-        $query = "SELECT * FROM users WHERE userID = '$userId' AND userPwd = '$userPwd'";
+        $query = "SELECT userPwd FROM users WHERE userID = '$userId'";
         $result = $connection -> query($query);
         if(!$result) die($connection -> error);
         $rows = $result -> num_rows;
@@ -31,6 +31,11 @@
             return false;
         }
         else{
-            return true;
+            if(password_verify($userPwd, $result -> fetch_assoc()['userPwd'])){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
     }

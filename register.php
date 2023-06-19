@@ -22,13 +22,14 @@
     if(isset($_POST['userId']) && isset($_POST['userPwd'])){
         $userId = $_POST['userId'];
         $userPwd = $_POST['userPwd'];
+        $userPwd_hash = password_hash($userPwd, PASSWORD_DEFAULT);
 
         if(if_user_exist($userId)){
             echo "<script>alert('使用者「'+'$userId'+'」已存在!');window.location.href='register.php';</script>";
 
         }
         else{
-            creat_user($userId, $userPwd);
+            creat_user($userId, $userPwd_hash);
             echo "<script>alert('使用者「'+'$userId'+'」註冊成功!');window.location.href='index.php';</script>";
         }
     }
