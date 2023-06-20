@@ -5,7 +5,7 @@
         echo "<script>alert('請先登入!');window.location.href='../index.php';</script>";
     }
     else{
-        echo "<script>alert('歡迎回來，{$_SESSION['userId']}');</script>";
+        echo "<script>console.log('歡迎回來，{$_SESSION['userId']}');</script>";
         echo <<<_END
         <!DOCTYPE html>
         <html>
@@ -46,7 +46,6 @@
                 </body>
         </html>
         _END;
-        session_destroy();
     }
 
     // if (!isset($_SESSION['initiated']))

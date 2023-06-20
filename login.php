@@ -22,6 +22,7 @@
         else{
             session_start();
             $_SESSION['userId'] = $userId;
+            session_id();
             echo "<script>window.location.href='./gameApp/app.php';</script>";
         }
     }
