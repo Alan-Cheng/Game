@@ -19,6 +19,8 @@
         echo "<script>alert('密碼錯誤!');window.location.href='index.php';</script>";
     }
     else{
-        echo "<script>alert('登入成功!');window.location.href='./gameApp/app.php';</script>";
+        session_start();
+        $_SESSION['userId'] = $userId;
+        echo "<script>window.location.href='./gameApp/app.php';</script>";
     }
 ?>
