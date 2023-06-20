@@ -39,8 +39,8 @@
                         <div class="ss">
                             Press any key to start new game.
                         </div>
-                        <div class="ss">
-                            <a href="../index.php">登出</a>
+                        <div>
+                            <button onclick="window.location.href='../index.php';">登出</button>
                         </div>
                     </div>
                 </body>
