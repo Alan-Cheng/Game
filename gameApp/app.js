@@ -124,13 +124,13 @@ $(function() {
                     if (checkCombo(winningCombos[potentialCombos[i][j]])) {
                         console.log(s + 'won');
                         gameOver = true;
-                        $('.ss').text('按任意鍵重新開始~');
+                        $('.ss').text('按任意案件重新開始');
                         return;
                     }
                 }
                 if (currentStep === 9) {
                     gameOver = true;
-                    $('.ss').text('平手! 按任意鍵重新開始~');
+                    $('.ss').text('此局平手，按任意案件重新開始');
                     return;
                 }
                 showArrow(currentStep);
