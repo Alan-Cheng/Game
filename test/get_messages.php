@@ -15,7 +15,9 @@ if(isset($_POST['name']) && isset($_POST['message'])) {
   ];
 }
 
-foreach ($_SESSION['message'] as $message) {
-  echo '<p><strong>' . $message['name'] . '</strong>: ' . $message['message'] . '</p>';
+if(isset($_SESSION['message'])) {
+  foreach ($_SESSION['message'] as $message) {
+    echo '<p><strong>' . $message['name'] . '</strong>: ' . $message['message'] . '</p>';
+  }
 }
 ?>
