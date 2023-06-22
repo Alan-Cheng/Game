@@ -12,6 +12,7 @@
             <head>
                 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0"></script>
                 <script src="app.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <link rel="stylesheet" href="style.css">
             </head>
                 <body>
